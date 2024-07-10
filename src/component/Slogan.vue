@@ -11,6 +11,7 @@
       class="w-full h-full my-32 flex flex-col gap-y-5 lg:gap-y-0 lg:flex-row justify-center items-center"
     >
       <div
+        ref="leftSection"
         class="flex-col lg:mx-auto xl:mx-0 gap-y-5 flex lg:justify-end justify-center h-auto lg:-mb-96 xl:-mr-48 lg:-mr-80 lg:items-start items-center z-10"
       >
         <h1
@@ -49,8 +50,14 @@
           </svg>
         </button>
       </div>
-      <img src="/joystick.png" alt="" class="w-auto z-0 h-auto object-center object-cover" />
+      <img
+        ref="imageSection"
+        src="/joystick.png"
+        alt=""
+        class="w-auto z-0 h-auto object-center object-cover"
+      />
       <div
+        ref="rightSection"
         class="flex-col xl:gap-y-14 gap-y-5 flex h-full justify-start -mt-20 lg:-ml-36 xl:mt-1 lg:-mt-56 items-center z-10"
       >
         <h1
@@ -60,7 +67,7 @@
           Play record share
         </h1>
         <div
-          class="lg:flex-col flex-row flex justify-center lg:-ml-10 xl:gap-y-10 gap-y-5 lg:items-start items-center lg:gap-y-0 gap-x-10"
+          class="lg:flex-col flex-row flex justify-center h-auto lg:-ml-10 xl:gap-y-10 gap-y-5 lg:items-start items-center lg:gap-y-0 gap-x-10"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -105,4 +112,80 @@
     </div>
   </section>
 </template>
-<script setup></script>
+<script setup>
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
+import { onMounted, ref } from 'vue'
+
+const leftSection = ref(null)
+const rightSection = ref(null)
+const imageSection = ref(null)
+gsap.registerPlugin(ScrollTrigger)
+
+const animateOnScroll = () => {
+  leftSection.value.childNodes.forEach((child) => {
+    gsap.fromTo(
+      child,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.3,
+        delay: 0.5,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: child,
+          start: 'center bottom',
+          end: 'bottom top',
+          scrub: false,
+          toggleActions: 'play reverse play reverse'
+        }
+      }
+    )
+  })
+  rightSection.value.childNodes.forEach((child) => {
+    gsap.fromTo(
+      child,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.3,
+        delay: 0.5,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: child,
+          start: 'center bottom',
+          end: 'bottom top',
+          scrub: false,
+          toggleActions: 'play reverse play reverse'
+        }
+      }
+    )
+  })
+  gsap.fromTo(
+    imageSection.value,
+    { opacity: 0 },
+    {
+      opacity: 1,
+      duration: 1,
+      stagger: 0.3,
+      delay: 0.7,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: imageSection.value,
+        start: 'center bottom',
+        end: 'bottom top',
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+      }
+    }
+  )
+}
+
+onMounted(() => {
+  animateOnScroll()
+})
+</script>
