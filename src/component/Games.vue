@@ -1,6 +1,6 @@
 <template>
   <section
-    class="bg-gradient-to-b px-10 xl:py-20 py-10 from-[#101010] via-transparent to-[#101010] flex-col xl:gap-y-8 gap-y-5 justify-center flex items-center w-full h-full"
+    class="bg-gradient-to-b px-10 xl:py-20 py-10 from-[#101010] via-[#000000] to-[#101010] flex-col xl:gap-y-8 gap-y-5 justify-center flex items-center w-full h-full"
   >
     <h1
       ref="tittleSection"
@@ -33,6 +33,11 @@
       </div>
     </div>
   </section>
+  <div class="absolute w-11/12 h-full z-0 flex justify-start items-start">
+    <div
+      class="bg-[#BA62FF] bg-opacity-30 rotate-12 blur-3xl -z-20 rounded-full w-1/2 h-1/2 overflow-hidden"
+    ></div>
+  </div>
 </template>
 <script setup>
 import gsap from 'gsap'

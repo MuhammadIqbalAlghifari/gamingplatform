@@ -4,7 +4,7 @@
   >
     <img
       src="/Hero Image.jpg"
-      class="w-full h-full object-cover object-center brightness-50 absolute -z-50"
+      class="w-full h-full object-cover object-center brightness-50 fixed -z-50"
     />
     <div
       ref="heroSection"

@@ -1,11 +1,11 @@
 <template>
-  <div class="absolute w-11/12 h-full -z-10 flex justify-end items-start">
+  <div class="absolute w-11/12 h-full z-0 flex justify-end items-center">
     <div
       class="bg-[#BA62FF] bg-opacity-30 rotate-12 blur-3xl -z-20 rounded-full w-1/2 h-1/2 overflow-hidden"
     ></div>
   </div>
   <section
-    class="bg-gradient-to-b px-10 from-[#101010] via-transparent to-[#101010] flex-col xl:gap-y-10 gap-y-5 justify-center flex items-center w-full h-auto"
+    class="bg-gradient-to-b px-10 from-[#101010] via-[#000000] to-[#101010] flex-col xl:gap-y-10 gap-y-5 justify-center flex items-center w-full h-auto"
   >
     <div
       class="w-full h-full my-32 flex flex-col gap-y-5 lg:gap-y-0 lg:flex-row justify-center items-center"

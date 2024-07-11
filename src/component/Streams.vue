@@ -5,7 +5,7 @@
     ></div>
   </div>
   <section
-    class="bg-gradient-to-b px-10 from-[#101010] via-transparent to-[#101010] flex-col xl:gap-y-10 gap-y-5 justify-center flex items-center w-full h-auto"
+    class="bg-gradient-to-b px-10 from-[#101010] via-[#000000] to-[#101010] flex-col xl:gap-y-10 gap-y-5 justify-center flex items-center w-full h-auto"
   >
     <div
       class="w-full h-full my-32 flex lg:flex-row flex-col lg:gap-y-0 justify-center items-start"
