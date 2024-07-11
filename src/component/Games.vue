@@ -3,6 +3,7 @@
     class="bg-gradient-to-b px-10 xl:py-20 py-10 from-[#101010] via-transparent to-[#101010] flex-col xl:gap-y-8 gap-y-5 justify-center flex items-center w-full h-full"
   >
     <h1
+      ref="tittleSection"
       class="xl:text-7xl md:text-5xl text-3xl font-bold uppercase mx-auto text-center text-white"
       style="font-family: 'Josefin Sans Variable'"
     >
@@ -12,6 +13,7 @@
       class="flex flex-wrap max-w-7xl mx-auto w-full h-auto xl:justify-between justify-center items-center gap-10"
     >
       <div
+        ref="cards"
         v-for="(item, index) in gamesList"
         :key="index"
         class="flex-col justify-end relative w-auto h-auto flex items-center"
@@ -33,6 +35,61 @@
   </section>
 </template>
 <script setup>
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
+import { onMounted, ref } from 'vue'
+
+const tittleSection = ref(null)
+const cards = ref([])
+gsap.registerPlugin(ScrollTrigger)
+
+const animateOnScroll = () => {
+  gsap.fromTo(
+    tittleSection.value,
+    { opacity: 0, y: 30 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      stagger: 0.3,
+      delay: 0.5,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: tittleSection.value,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: false,
+        toggleActions: 'play reverse play reverse'
+      }
+    }
+  )
+  cards.value.forEach((child) => {
+    gsap.fromTo(
+      child,
+      { opacity: 0, y: 30 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.3,
+        delay: 0.7,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: child,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: false,
+          toggleActions: 'play reverse play reverse'
+        }
+      }
+    )
+  })
+}
+
+onMounted(() => {
+  animateOnScroll()
+})
+
 const gamesList = [
   {
     image: '/codbo.png',

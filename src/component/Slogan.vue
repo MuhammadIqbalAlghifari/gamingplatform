@@ -132,11 +132,11 @@ const animateOnScroll = () => {
         y: 0,
         duration: 1,
         stagger: 0.3,
-        delay: 0.5,
+        delay: 0.2,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: child,
-          start: 'center bottom',
+          start: 'top bottom',
           end: 'bottom top',
           scrub: false,
           toggleActions: 'play reverse play reverse'
@@ -153,11 +153,11 @@ const animateOnScroll = () => {
         y: 0,
         duration: 1,
         stagger: 0.3,
-        delay: 0.5,
+        delay: 0.2,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: child,
-          start: 'center bottom',
+          start: 'top bottom',
           end: 'bottom top',
           scrub: false,
           toggleActions: 'play reverse play reverse'
@@ -172,11 +172,11 @@ const animateOnScroll = () => {
       opacity: 1,
       duration: 1,
       stagger: 0.3,
-      delay: 0.7,
+      delay: 1,
       ease: 'power3.out',
       scrollTrigger: {
         trigger: imageSection.value,
-        start: 'center bottom',
+        start: 'top bottom',
         end: 'bottom top',
         scrub: false,
         toggleActions: 'play reverse play reverse'

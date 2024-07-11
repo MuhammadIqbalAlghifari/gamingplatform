@@ -64,7 +64,7 @@ const animateOnScroll = () => {
       opacity: 1,
       duration: 1,
       stagger: 0.3,
-      delay: 0.7,
+      delay: 0.2,
       ease: 'power3.out',
       scrollTrigger: {
         trigger: imageSection.value,

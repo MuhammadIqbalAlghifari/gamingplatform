@@ -46,7 +46,7 @@ const animateOnScroll = () => {
       ease: 'power3.out',
       scrollTrigger: {
         trigger: chatroomSection.value.children,
-        start: 'center bottom',
+        start: 'top bottom',
         end: 'bottom top',
         scrub: false,
         toggleActions: 'play reverse play reverse'
