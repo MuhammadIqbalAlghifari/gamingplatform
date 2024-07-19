@@ -6,6 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gaming Platform</title>
   </head>
+  <style>
+    body {
+      --sb-track-color: #101010;
+      --sb-thumb-color: #ffffff;
+      --sb-size: 11px;
+    }
+
+    body::-webkit-scrollbar {
+      width: var(--sb-size);
+    }
+
+    body::-webkit-scrollbar-track {
+      background: var(--sb-track-color);
+      border-radius: 0px;
+    }
+
+    body::-webkit-scrollbar-thumb {
+      background: var(--sb-thumb-color);
+      border-radius: 5px;
+    }
+  </style>
   <body class="bg-[#101010]">
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
